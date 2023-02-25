@@ -7,30 +7,23 @@ abstract class NumberTriviaRemoteDataSource {
   Future<NumberTriviaModel> getConcreteNumberTrivia(int number);
   Future<NumberTriviaModel> getRandomNumberTrivia();
 }
+
 class NumberTriviaRemoteDataSourceImpl extends NumberTriviaRemoteDataSource{
   final http.Client client;
   NumberTriviaRemoteDataSourceImpl({required this.client});
   @override
   Future<NumberTriviaModel> getConcreteNumberTrivia(int number) async {
-    final response = await client.get(
-        Uri.parse('http://numbersapi.com/$number'),
-        headers: {
-          'Content-Type': 'application/json',
-        }
-    );
-    if(response.statusCode == 200) {
-      return NumberTriviaModel.fromJson(json.decode(response.body));
-    } else {
-      throw ServerException();
-    }
+  return await _getTriviaFromUrl(Uri.parse('http://numbersapi.com/$number'));
   }
 
   @override
   Future<NumberTriviaModel> getRandomNumberTrivia() async{
+    return await _getTriviaFromUrl(Uri.parse('http://numbersapi.com/random'));
+  }
 
-    // TODO: implement getRandomNumberTrivia
-    final response=await client.get(
-        Uri.parse('http://numbersapi.com/random'),
+  Future<NumberTriviaModel> _getTriviaFromUrl(Uri url) async {
+    final response = await client.get(
+        url,
         headers: {
           'Content-Type': 'application/json',
         }

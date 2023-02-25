@@ -1,17 +1,17 @@
 // ignore: import_of_legacy_library_into_null_safe
-import 'package:data_connection_checker/data_connection_checker.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:mvvm_movies_app/core/network/network_info.dart';
 
 import 'network_info_test.mocks.dart';
-@GenerateMocks([DataConnectionChecker])
+@GenerateMocks([InternetConnectionChecker])
 void main(){
-  late MockDataConnectionChecker mockNetworkInfo;
+  late MockInternetConnectionChecker mockNetworkInfo;
   late NetworkInfoImpl networkInfoImpl;
   setUp((){
-    mockNetworkInfo = MockDataConnectionChecker();
+    mockNetworkInfo = MockInternetConnectionChecker();
     networkInfoImpl = NetworkInfoImpl(mockNetworkInfo);
   });
   group('isConnected', (){

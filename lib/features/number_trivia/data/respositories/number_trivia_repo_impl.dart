@@ -5,7 +5,6 @@ import 'package:mvvm_movies_app/features/number_trivia/data/datasources/number_t
 import 'package:mvvm_movies_app/features/number_trivia/data/datasources/number_trivia_remote_data_source.dart';
 import 'package:mvvm_movies_app/features/number_trivia/domain/entities/number_trivia.dart';
 import 'package:mvvm_movies_app/features/number_trivia/domain/repositories/number_trivia_repo.dart';
-
 import '../../../../core/errors/exceptions.dart';
 import '../models/number_trivia_model.dart';
 typedef _ConcreteOrRandomChooser = Future<NumberTrivia> Function();
