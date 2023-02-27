@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:mvvm_movies_app/core/errors/failures.dart';
-import 'package:mvvm_movies_app/core/network//network_info.dart';
+import 'package:mvvm_movies_app/core/network/network_info.dart';
 import 'package:mvvm_movies_app/features/number_trivia/data/datasources/number_trivia_local_data_source.dart';
 import 'package:mvvm_movies_app/features/number_trivia/data/datasources/number_trivia_remote_data_source.dart';
 import 'package:mvvm_movies_app/features/number_trivia/domain/entities/number_trivia.dart';
